@@ -3,7 +3,8 @@
 //requireJS 모듈 선언 - [myApp 앵귤러 모듈]
 define([
 		'angular', //앵귤러 모듈을 사용하기 위해 임포트
-		'route-config' //registers에 각 프로바이더를 제공하기 위해 임포트
+		'route-config', //registers에 각 프로바이더를 제공하기 위해 임포트
+		'angular-route'
 	],
 	
 /*
@@ -22,7 +23,7 @@ define([
 		
 		
 		//모듈 선언
-		var app = angular.module('myApp', [], function ($provide, $compileProvider, $controllerProvider, $filterProvider) {
+		var app = angular.module('myApp', ['ngRoute'], function ($provide, $compileProvider, $controllerProvider, $filterProvider) {
 		
 			//부트스트랩 과정에서만 가져올 수 있는 프로바이더들을 각 registers와 연계될 수 있도록
 			routeConfig.setProvide($provide); //for services
