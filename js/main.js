@@ -34,10 +34,11 @@ requirejs.config({
 	paths:{
 
 		//뒤에 js 확장자는 생략한다.
-		'text': '../lib/require/text', //HTML 데이터를 가져올때 text! 프리픽스를 붙여준다.
-		'jquery': '../lib/jquery/jquery',
+		'text': '//cdnjs.cloudflare.com/ajax/libs/require-text/2.0.10/text', //HTML 데이터를 가져올때 text! 프리픽스를 붙여준다.
+		'jquery': '//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0-rc1/jquery',
 		'jquery-ui': '../lib/jquery/jquery-ui-1.10.2.min',
-		'angular': '../lib/angular/angular',
+		'angular': '//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.14/angular.min',
+		'angular-route': 'http://code.angularjs.org/1.2.14/angular-route.min',
 		'library': '../lib'
 	},
 	
@@ -50,6 +51,9 @@ requirejs.config({
 		'angular':{
 			deps:['jquery'],
 			exports:'angular'
+		},
+		'angular-route':{
+			deps:['angular']
 		},
 		'jquery-ui': {
 			deps: ['jquery'] 
@@ -69,6 +73,7 @@ requirejs( [
 		'text', //미리 선언해둔 path, css나 html을 로드하기 위한 requireJS 플러그인
 		'jquery', //미리 선언해둔 path, jQuery는 AMD를 지원하기 때문에 이렇게 로드해도 jQuery 또는 $로 호출할 수 있다.
 		'angular', //미리 선언해둔 path
+		'angular-route'
 		'jquery-ui',
 		'app', //app.js
 		'routes' //routes.js
