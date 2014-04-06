@@ -54,9 +54,13 @@ define([
 				html,
 				routeDefinition = {};
 
-			//경로 템플릿 설정
-			routeDefinition.template = function () {
-				return html;
+			//경로 템플릿 설정 (ng:1.0.x)
+//			routeDefinition.template = function () {
+//				return html;
+//			};
+			//경로 템플릿 설정 (ng:1.2.x)
+			routeDefinition.templateUrl = function () {
+				return templatePath;
 			};
 			
 			//경로 컨트롤러 설정
@@ -126,7 +130,7 @@ define([
 							}
 							
 							//딜레이 걸어놓기
-							html = template;
+							//html = template;	(ng:1.0.x)
 							defer.resolve();
 							$rootScope.$apply();
 						})
